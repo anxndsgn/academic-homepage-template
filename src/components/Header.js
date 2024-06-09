@@ -1,9 +1,15 @@
 "use client";
 import { personalInfo } from "../../website.config";
-import { RiMenuLine, RiCloseLine, RiSunLine } from "@remixicon/react";
+import {
+  RiMenuLine,
+  RiCloseLine,
+  RiSunLine,
+  RiMoonLine,
+} from "@remixicon/react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useTheme } from "next-themes";
 
 const navItems = [
   { name: "Projects", href: "/projects" },
@@ -14,11 +20,13 @@ const navItems = [
 export default function Header() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
+  const { theme, setTheme } = useTheme();
+
   return (
     <div
-      className={`flex flex-col fixed top-0 w-full bg-neutral-50/30 backdrop-blur-lg content-start `}
+      className={`flex flex-col fixed top-0 w-full bg-neutral-50/80 dark:bg-neutral-800/30 backdrop-blur-lg content-start `}
     >
-      <nav className="flex justify-between m-auto md:w-[36rem] w-full py-4 text-lg px-4 h-auto">
+      <nav className="flex justify-between m-auto md:w-[40rem] w-full py-4 text-lg px-4 h-auto">
         <Button asChild variant="ghost">
           <Link href={"/"} className="font-semibold">
             {personalInfo.name}
@@ -35,7 +43,7 @@ export default function Header() {
               <Link href={"/pulications"}>Pulications</Link>
             </Button>
             <Button asChild variant="ghost" className=" font-normal">
-              <Link href={"/cv"}>CV</Link>
+              <Link href={"/cv.pdf"}>CV</Link>
             </Button>
           </div>
 
@@ -54,8 +62,18 @@ export default function Header() {
             )}
           </Button>
 
-          <Button variant="ghost" size="icon">
-            <RiSunLine className="w-5 h-5" />
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() =>
+              theme === "light" ? setTheme("dark") : setTheme("light")
+            }
+          >
+            {theme === "light" ? (
+              <RiSunLine className="w-5 h-5" />
+            ) : (
+              <RiMoonLine className="w-5 h-5" />
+            )}
           </Button>
         </div>
       </nav>

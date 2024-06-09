@@ -19,8 +19,8 @@ export default function About() {
             src={personalInfo.profilePicture}
             alt="profile image"
             width={120}
-            height={180}
-            className="md:hidden sm:block"
+            height={120}
+            className="md:hidden sm:block object-cover"
           ></Image>
         )}
         <div className="flex flex-col gap-3">
@@ -32,13 +32,13 @@ export default function About() {
                 <Button asChild variant="outline" key={social.name} size={"sm"}>
                   <Link href={social.url} target="_blank">
                     {social.name === "Email" ? (
-                      <RiMailLine size={20} />
+                      <RiMailLine size={16} />
                     ) : social.name === "GitHub" ? (
-                      <RiGithubFill size={20} />
+                      <RiGithubFill size={16} />
                     ) : social.name === "Twitter" ? (
-                      <RiTwitterXLine size={20} />
+                      <RiTwitterXLine size={16} />
                     ) : (
-                      <RiLinkedinBoxFill size={20} />
+                      <RiLinkedinBoxFill size={16} />
                     )}
                   </Link>
                 </Button>
@@ -51,8 +51,8 @@ export default function About() {
             src={personalInfo.profilePicture}
             alt="profile image"
             width={120}
-            height={180}
-            className="hidden md:block"
+            height={120}
+            className="hidden md:block object-cover"
           ></Image>
         )}
       </div>
