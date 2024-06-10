@@ -2,10 +2,7 @@ import fs from "fs";
 import bibtexParse from "bibtex-parse-js";
 import path from "path";
 
-const bibtex = fs.readFileSync(
-  path.join(process.cwd(), "public/data/Selected.bib"),
-  "utf8"
-);
+const bibtex = fs.readFileSync("public/data/Selected.bib", "utf8");
 const parsed = bibtexParse.toJSON(bibtex);
 
 export default function SelectedPublications() {
