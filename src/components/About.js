@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import AboutMd from "@/data/About.mdx";
+import AboutMd from "@/data/home/About.mdx";
 import { personalInfo } from "../../website.config";
 import {
   RiMailLine,

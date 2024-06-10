@@ -1,5 +1,5 @@
 import React from "react";
-import NewsMd from "@/data/News.mdx";
+import NewsMd from "@/data/home/News.mdx";
 
 export default function News() {
   return (
