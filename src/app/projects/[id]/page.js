@@ -9,7 +9,8 @@ import Link from "next/link";
 import { RiArrowLeftSLine } from "@remixicon/react";
 
 function getMdxFilesList(directoryPath) {
-  const fullPath = path.join(process.cwd(), directoryPath);
+  const fullPath = path.resolve(directoryPath);
+  // const fullPath = path.join(process.cwd(), directoryPath);
   const files = fs.readdirSync(fullPath);
   const mdxFilesList = files
     .filter((file) => path.extname(file) === ".mdx")
@@ -18,7 +19,6 @@ function getMdxFilesList(directoryPath) {
       const fileContents = fs.readFileSync(filePath, "utf8");
       const { data } = matter(fileContents);
       return {
-        filePath,
         projectName: data.projectName,
         projectDesription: data.projectDescription,
         projectTime: data.projectTime,
@@ -26,11 +26,10 @@ function getMdxFilesList(directoryPath) {
         projectId: data.projectName.toLowerCase().replace(/\s/g, ""),
       };
     });
-  return mdxFilesList;
+  return mdxFilesList.reverse();
 }
 
 const projectList = getMdxFilesList("src/data/projects");
-// console.log(projectList);
 
 export async function generateStaticParams() {
   return projectList.map((project) => ({
