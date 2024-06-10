@@ -4,9 +4,9 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-//get project info from data/projects/ return a array of objects
 function getMdxFilesList(directoryPath) {
-  const fullPath = path.join(process.cwd(), directoryPath);
+  const fullPath = path.resolve(directoryPath);
+  // const fullPath = path.join(process.cwd(), directoryPath);
   const files = fs.readdirSync(fullPath);
   const mdxFilesList = files
     .filter((file) => path.extname(file) === ".mdx")
@@ -25,9 +25,9 @@ function getMdxFilesList(directoryPath) {
   return mdxFilesList.reverse();
 }
 
-const projects = getMdxFilesList("src/data/projects");
+export default async function Projects() {
+  const projects = getMdxFilesList("src/data/projects");
 
-export default function Projects() {
   return (
     <main className="md:w-[40rem] w-full m-auto px-8 mt-32 flex flex-col gap-10">
       <h1 className="text-3xl font-semibold">Projects</h1>
