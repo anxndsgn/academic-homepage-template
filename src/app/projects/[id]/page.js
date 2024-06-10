@@ -31,15 +31,16 @@ function getMdxFilesList(directoryPath) {
   return mdxFilesList.reverse();
 }
 
-const projectList = getMdxFilesList("src/data/projects");
-
 export async function generateStaticParams() {
+  const projectList = getMdxFilesList("src/data/projects");
   return projectList.map((project) => ({
     id: projectList.projectId,
   }));
 }
 
 export default async function Page({ params }) {
+  const projectList = getMdxFilesList("src/data/projects");
+
   const project = projectList.find(
     (project) => project.projectId === params.id
   );

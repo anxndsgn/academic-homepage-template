@@ -27,14 +27,14 @@ function getMdxFilesList(directoryPath) {
 }
 
 export default async function Projects() {
-  const projects = getMdxFilesList("src/data/projects");
+  const projectList = getMdxFilesList("src/data/projects");
 
   return (
     <main className="md:w-[40rem] w-full m-auto px-8 mt-32 flex flex-col gap-10">
       <h1 className="text-3xl font-semibold">Projects</h1>
 
       <section className="grid gap-5 transition-all h-auto">
-        {projects.map((project) => (
+        {projectList.map((project) => (
           <ProjectCard
             key={project.projectName}
             title={project.projectName}
