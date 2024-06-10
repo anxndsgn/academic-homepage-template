@@ -4,6 +4,9 @@ import path from "path";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { useMDXComponents } from "@/mdx-components";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { RiArrowLeftSLine } from "@remixicon/react";
 
 function getMdxFilesList(directoryPath) {
   const fullPath = path.join(process.cwd(), directoryPath);
@@ -47,7 +50,14 @@ export default async function Page({ params }) {
 
   return (
     <main className="md:w-[40rem] w-full m-auto px-8 mt-32 flex flex-col gap-10">
-      <h1 className="text-3xl font-semibold">{project.projectName}</h1>
+      <div className="flex gap-4">
+        <Link href="/projects">
+          <Button variant="outline" size="icon">
+            <RiArrowLeftSLine className="w-5 h-5" />
+          </Button>
+        </Link>
+        <h1 className="text-3xl font-semibold">{project.projectName}</h1>
+      </div>
       <MDXRemote source={content} components={MDXComponents} />
     </main>
   );

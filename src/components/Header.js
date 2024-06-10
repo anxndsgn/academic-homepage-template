@@ -40,7 +40,7 @@ export default function Header() {
               </Link>
             </Button>
             <Button asChild variant="ghost" className=" font-normal">
-              <Link href={"/pulications"}>Pulications</Link>
+              <Link href={"/publications"}>Publications</Link>
             </Button>
             <Button asChild variant="ghost" className=" font-normal">
               <Link href={"/cv.pdf"}>CV</Link>
@@ -87,7 +87,7 @@ export default function Header() {
           <Link href={"/projects"}>Projects</Link>
         </Button>
         <Button asChild variant="ghost">
-          <Link href={"/pulications"}>pulications</Link>
+          <Link href={"/publications"}>Publications</Link>
         </Button>
         <Button asChild variant="ghost">
           <Link href={"/cv"}>CV</Link>

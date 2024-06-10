@@ -10,7 +10,7 @@ import {
 } from "@remixicon/react";
 import { Button } from "./ui/button";
 
-export default function About() {
+export default function AboutSection() {
   return (
     <section className="flex flex-col gap-8">
       <div className="flex flex-col gap-8 md:flex-row md:justify-between">
