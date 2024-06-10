@@ -25,6 +25,7 @@ function getMdxFilesList(directoryPath) {
         projectTime: data.projectTime,
         projectImg: data.projectImg,
         projectId: data.projectName.toLowerCase().replace(/\s/g, ""),
+        fileContents,
       };
     });
   return mdxFilesList.reverse();
@@ -43,8 +44,7 @@ export default async function Page({ params }) {
     (project) => project.projectId === params.id
   );
 
-  const fileContents = fs.readFileSync(project.filePath, "utf8");
-  const { content } = matter(fileContents);
+  const { content } = matter(project.fileContents);
 
   const MDXComponents = useMDXComponents();
 
