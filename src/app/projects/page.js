@@ -15,6 +15,7 @@ function getMdxFilesList(directoryPath) {
       const fileContents = fs.readFileSync(filePath, "utf8");
       const { data } = matter(fileContents);
       return {
+        filePath,
         projectName: data.projectName,
         projectDesription: data.projectDescription,
         projectTime: data.projectTime,
