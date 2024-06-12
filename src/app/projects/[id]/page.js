@@ -1,5 +1,5 @@
 import React from "react";
-import fs from "fs";
+import { fs, promises } from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -8,44 +8,42 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { RiArrowLeftSLine } from "@remixicon/react";
 
-function getMdxFilesList(directoryPath) {
-  const fullPath = path.resolve(directoryPath);
-  // const fullPath = path.join(process.cwd(), directoryPath);
-  const files = fs.readdirSync(fullPath);
-  const mdxFilesList = files
-    .filter((file) => path.extname(file) === ".mdx")
-    .map((file) => {
-      const filePath = path.join(fullPath, file);
-      const fileContents = fs.readFileSync(filePath, "utf8");
-      const { data } = matter(fileContents);
-      return {
-        filePath,
-        projectName: data.projectName,
-        projectDesription: data.projectDescription,
-        projectTime: data.projectTime,
-        projectImg: data.projectImg,
-        projectId: data.projectName.toLowerCase().replace(/\s/g, ""),
-        fileContents,
-      };
-    });
+async function getMdxFilesList(filePath) {
+  const fullPath = path.join(process.cwd(), filePath);
+  const files = await promises.readdir(fullPath);
+  const mdxFilesList = await Promise.all(
+    files
+      .filter((file) => path.extname(file) === ".mdx")
+      .map(async (file) => {
+        const filePath = path.join(fullPath, file);
+        const fileContents = await promises.readFile(filePath, "utf8");
+        const { data } = matter(fileContents);
+        return {
+          filePath,
+          projectName: data.projectName,
+          projectDesription: data.projectDescription,
+          projectTime: data.projectTime,
+          projectImg: data.projectImg,
+          projectId: data.projectName.toLowerCase().replace(/\s/g, ""),
+        };
+      })
+  );
   return mdxFilesList.reverse();
 }
+const projectList = await getMdxFilesList("src/data/projects");
 
 export async function generateStaticParams() {
-  const projectList = getMdxFilesList("src/data/projects");
   return projectList.map((project) => ({
     id: projectList.projectId,
   }));
 }
 
 export default async function Page({ params }) {
-  const projectList = getMdxFilesList("src/data/projects");
-
   const project = projectList.find(
     (project) => project.projectId === params.id
   );
-
-  const { content } = matter(project.fileContents);
+  const fileContents = await promises.readFile(project.filePath, "utf8");
+  const { content } = matter(fileContents);
 
   const MDXComponents = useMDXComponents();
 
