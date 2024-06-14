@@ -1,4 +1,3 @@
-import React from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { useMDXComponents } from "@/mdx-components";
 import { Button } from "@/components/ui/button";

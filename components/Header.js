@@ -1,5 +1,5 @@
 "use client";
-import { personalInfo } from "../../website.config";
+import { personalInfo } from "@/website.config";
 import {
   RiMenuLine,
   RiCloseLine,

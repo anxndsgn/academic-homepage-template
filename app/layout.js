@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { websiteInfo } from "../../website.config";
+import { websiteInfo } from "@/website.config";
 import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/ThemeProvider";
 

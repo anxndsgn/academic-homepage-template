@@ -1,4 +1,3 @@
-import React from "react";
 import ProjectCard from "@/components/ProjectCard";
 import { formatDate, getProjects } from "./utils";
 
@@ -6,7 +5,7 @@ export const metadata = {
   title: "Projects",
 };
 
-export default async function Projects() {
+export default async function Page() {
   let projects = getProjects().sort((a, b) => {
     return new Date(b.metadata.date) - new Date(a.metadata.date);
   });
