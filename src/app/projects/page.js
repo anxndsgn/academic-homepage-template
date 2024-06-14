@@ -1,47 +1,29 @@
 import React from "react";
 import ProjectCard from "@/components/ProjectCard";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+import { formatDate, getProjects } from "./utils";
 
-function getMdxFilesList(directoryPath) {
-  const fullPath = path.resolve(directoryPath);
-  // const fullPath = path.join(process.cwd(), directoryPath);
-  const files = fs.readdirSync(fullPath);
-  const mdxFilesList = files
-    .filter((file) => path.extname(file) === ".mdx")
-    .map((file) => {
-      const filePath = path.join(fullPath, file);
-      const fileContents = fs.readFileSync(filePath, "utf8");
-      const { data } = matter(fileContents);
-      return {
-        filePath,
-        projectName: data.projectName,
-        projectDesription: data.projectDescription,
-        projectTime: data.projectTime,
-        projectImg: data.projectImg,
-        projectId: data.projectName.toLowerCase().replace(/\s/g, ""),
-      };
-    });
-  return mdxFilesList.reverse();
-}
+export const metadata = {
+  title: "Projects",
+};
 
 export default async function Projects() {
-  const projectList = getMdxFilesList("src/data/projects");
+  let projects = getProjects().sort((a, b) => {
+    return new Date(b.metadata.date) - new Date(a.metadata.date);
+  });
 
   return (
     <main className="md:w-[40rem] w-full m-auto px-8 mt-32 flex flex-col gap-10">
       <h1 className="text-3xl font-semibold">Projects</h1>
 
       <section className="grid gap-5 transition-all h-auto">
-        {projectList.map((project) => (
+        {projects.map((project) => (
           <ProjectCard
-            key={project.projectName}
-            title={project.projectName}
-            desription={project.projectDesription}
-            time={project.projectTime}
-            img={project.projectImg}
-            id={project.projectId}
+            key={project.slug}
+            title={project.metadata.title}
+            description={project.metadata.description}
+            date={formatDate(project.metadata.date)}
+            img={project.metadata.image}
+            slug={project.slug}
           />
         ))}
       </section>

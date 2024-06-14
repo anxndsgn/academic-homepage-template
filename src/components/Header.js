@@ -8,19 +8,22 @@ import {
 } from "@remixicon/react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-
-const navItems = [
-  { name: "Projects", href: "/projects" },
-  { name: "Publications", href: "/publications" },
-  { name: "CV", href: "/cv" },
-];
 
 export default function Header() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div

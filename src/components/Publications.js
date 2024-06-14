@@ -4,10 +4,13 @@ export default function Publications({ bibtex }) {
   const parsed = bibtexParse.toJSON(bibtex);
 
   return (
-    <ul className="flex flex-col gap-4">
+    <ol className="flex flex-col gap-4">
       {parsed.map((item) => {
         return (
-          <li key={item.entryTags.title} className="flex flex-col gap-1">
+          <li
+            key={item.entryTags.title}
+            className=" gap-1 list-outside list-decimal"
+          >
             <h2 className="text-base font-medium dark:text-neutral-50">
               {item.entryTags.url ? (
                 <a href={item.entryTags.url} className="underline">
@@ -29,6 +32,6 @@ export default function Publications({ bibtex }) {
           </li>
         );
       })}
-    </ul>
+    </ol>
   );
 }
