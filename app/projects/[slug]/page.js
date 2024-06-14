@@ -8,7 +8,7 @@ import { notFound } from "next/navigation";
 export async function generateStaticParams() {
   const projectList = getProjects();
   return projectList.map((project) => ({
-    slug: projectList.slug,
+    slug: project.slug,
   }));
 }
 
@@ -20,7 +20,7 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default async function Page({ params }) {
+export default function Page({ params }) {
   const project = getProjects().find((project) => project.slug === params.slug);
 
   if (!project) {
