@@ -1,14 +1,23 @@
 import fs from "fs";
 import path from "path";
-import matter from "gray-matter";
 import { parseISO, format } from "date-fns";
 
-function parseFrontmatter(content) {
-  let { data, content: mdxContent } = matter(content);
-  return {
-    metadata: data,
-    content: mdxContent,
-  };
+function parseFrontmatter(fileContent) {
+  let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
+  let match = frontmatterRegex.exec(fileContent);
+  let frontMatterBlock = match[1];
+  let content = fileContent.replace(frontmatterRegex, "").trim();
+  let frontMatterLines = frontMatterBlock.trim().split("\n");
+  let metadata = {};
+
+  frontMatterLines.forEach((line) => {
+    let [key, ...valueArr] = line.split(": ");
+    let value = valueArr.join(": ").trim();
+    value = value.replace(/^['"](.*)['"]$/, "$1"); // Remove quotes
+    metadata[key.trim()] = value;
+  });
+
+  return { metadata, content };
 }
 
 function getMDXFiles(dir) {

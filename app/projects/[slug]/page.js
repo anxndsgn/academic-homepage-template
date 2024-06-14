@@ -1,5 +1,4 @@
-import { MDXRemote } from "next-mdx-remote/rsc";
-import { useMDXComponents } from "@/mdx-components";
+import { CustomMDX } from "@/components/mdx";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { RiArrowLeftSLine } from "@remixicon/react";
@@ -28,8 +27,6 @@ export default async function Page({ params }) {
     notFound();
   }
 
-  const MDXComponents = useMDXComponents();
-
   return (
     <main className="md:w-[40rem] w-full m-auto px-8 mt-32 flex flex-col gap-10">
       <div className="flex gap-4">
@@ -40,7 +37,9 @@ export default async function Page({ params }) {
         </Link>
         <h1 className="text-3xl font-semibold">{project.metadata.title}</h1>
       </div>
-      <MDXRemote source={project.content} components={MDXComponents} />
+      <article className="prose">
+        <CustomMDX source={project.content} />
+      </article>
     </main>
   );
 }
