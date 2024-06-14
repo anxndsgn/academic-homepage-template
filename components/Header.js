@@ -85,6 +85,7 @@ export default function Header() {
         className={`h-lvh flex flex-col w-3/4 m-auto mt-8 gap-4 md:hidden ${
           menuIsOpen ? "block" : " hidden"
         }`}
+        onClick={() => setMenuIsOpen(false)}
       >
         <Button asChild variant="ghost">
           <Link href={"/projects"}>Projects</Link>
