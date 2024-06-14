@@ -19,7 +19,12 @@ export function useMDXComponents(components) {
       />
     ),
     h1: ({ children }) => <h1 className="text-2xl font-medium">{children}</h1>,
-    a: (props) => <a className="underline hover:text-neutral-900" {...props} />,
+    a: (props) => (
+      <a
+        className="underline hover:text-neutral-900 dark:hover:text-neutral-50"
+        {...props}
+      />
+    ),
     ...components,
   };
 }
