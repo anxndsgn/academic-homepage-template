@@ -11,9 +11,8 @@ export default async function Page() {
   });
 
   return (
-    <main className="md:w-[40rem] w-full m-auto px-8 mt-32 flex flex-col gap-10">
+    <main className="md:w-[40rem] w-full m-auto px-8 mt-32 flex flex-col gap-10 mb-20">
       <h1 className="text-3xl font-semibold">Projects</h1>
-
       <section className="grid gap-5 transition-all h-auto">
         {projects.map((project) => (
           <ProjectCard
