@@ -1,15 +1,9 @@
-export const websiteInfo = {
-  title: "My website",
-  description: "HCI researcher",
-  teaserImage: "/teaser.jpg",
-};
-
 export const personalInfo = {
-  name: "Xueyan Cai",
+  name: "Hiroshi Ishii",
   introduction: "HCI researcher @ZJU",
   profilePicture: "/profile.jpg",
-  role: "PhD student",
-  university: "Zhejiang University",
+  role: "Professor",
+  university: "MIT Media Lab",
   universityWebsite: "https://www.zju.edu.cn/",
   socialMedia: [
     { name: "Email", url: "https://linkedin.com" },
@@ -17,4 +11,10 @@ export const personalInfo = {
     { name: "GitHub", url: "https://github.com" },
     { name: "LinkedIn", url: "https://linkedin.com" },
   ],
+};
+
+export const websiteInfo = {
+  title: personalInfo.name,
+  description: "HCI researcher",
+  teaserImage: "/teaser.jpg",
 };

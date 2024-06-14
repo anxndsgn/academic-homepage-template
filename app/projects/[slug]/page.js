@@ -29,7 +29,7 @@ export default function Page({ params }) {
 
   return (
     <main className="md:w-[40rem] w-full m-auto px-8 mt-32 flex flex-col gap-10">
-      <div className="flex gap-4">
+      <div className="flex gap-4 items-center">
         <Link href="/projects">
           <Button variant="outline" size="icon">
             <RiArrowLeftSLine className="w-5 h-5" />

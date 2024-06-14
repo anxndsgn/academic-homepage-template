@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Academic Homepage Template
+
+This project is an academic homepage template built with Next.js, Tailwind CSS, and ShadcnUI. The design is minimalistic and modern, providing a clean and professional look for academic portfolios. It supports deployment to Zeabur and can directly parse `.bib` files to display publications.
+
+## Features
+
+- **Minimalistic Design**: Clean and modern interface to showcase academic work.
+- **Next.js**: A React framework for building fast and scalable web applications.
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development.
+- **ShadcnUI**: A customizable UI component library.
+- **Zeabur Deployment**: Easy deployment to Zeabur for hosting.
+- **Bib File Parsing**: Directly parse and display publications from `.bib` files.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (version 14.x or higher)
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/anxndsgn/academic-homepage-template.git
+   cd academic-homepage-template
+   ```
+
+2. **Install dependencies**
+
+   Using pnpm:
+
+   ```bash
+   pnpm install
+   ```
+
+### Development
+
+To start the development server, run:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Deployment to Zeabur
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Sign in to Zeabur and create a new project.
+- Fork this repo.
+- Deploy the project using Git service.
+  For more detailed instructions, refer to the Zeabur documentation.
 
-## Learn More
+[![Deployed on Zeabur](https://zeabur.com/deployed-on-zeabur-dark.svg)](https://zeabur.com?referralCode=anxndsgn&utm_source=anxndsgn&utm_campaign=oss)
 
-To learn more about Next.js, take a look at the following resources:
+# Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Parsing Bib Files
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Place your .bib file in the public directory. The application will automatically parse the file and display your publications.
 
-## Deploy on Vercel
+## Customization
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+You can customize the UI components using Tailwind CSS classes and ShadcnUI's customizable components. Refer to the Tailwind CSS documentation and ShadcnUI documentation for more information.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request.
+
+# License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+# Acknowledgements
+
+Next.js
+Tailwind CSS
+ShadcnUI
+Zeabur

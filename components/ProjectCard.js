@@ -10,8 +10,8 @@ export default function ProjectCard({
   id,
 }) {
   return (
-    <Link href={`projects/${slug}`} className="h-auto">
-      <div className=" grid grid-cols-2 gap-2 border-neutral-200 dark:border-neutral-700 border w-full rounded-xl bg-white dark:bg-neutral-800 hover:shadow-sm overflow-hidden">
+    <Link href={`projects/${slug}`} className="">
+      <div className=" grid grid-cols-2 gap-2 border-neutral-200 dark:border-neutral-700 border w-full h-56 rounded-xl bg-white dark:bg-neutral-800 hover:shadow-sm overflow-hidden">
         <div className="p-6 flex flex-col justify-between ">
           <div className="flex flex-col gap-2 mb-4">
             <h2 className="text-xl font-semibold">{title}</h2>

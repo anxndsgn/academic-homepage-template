@@ -20,12 +20,16 @@ export default function AboutSection() {
             alt="profile image"
             width={120}
             height={120}
-            className="md:hidden sm:block object-cover"
+            className="md:hidden sm:block object-cover aspect-square"
           ></Image>
         )}
         <div className="flex flex-col gap-3">
           <h1 className="text-4xl font-semibold">{personalInfo.name}</h1>
-          <h2 className="text-xl font-medium">{personalInfo.introduction}</h2>
+
+          <h2 className="text-xl font-medium">
+            {personalInfo.role} @{personalInfo.university}
+          </h2>
+
           <div className="flex gap-3 text-neutral-600 hover:text-neutral-900">
             {personalInfo.socialMedia.map((social) => {
               return (
@@ -52,7 +56,7 @@ export default function AboutSection() {
             alt="profile image"
             width={120}
             height={120}
-            className="hidden md:block object-cover"
+            className="hidden md:block object-cover aspect-square"
           ></Image>
         )}
       </div>
