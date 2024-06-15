@@ -64,7 +64,9 @@ export default function AboutSection() {
           ></Image>
         )}
       </div>
-      <AboutMd />
+      <article className="flex flex-col gap-2">
+        <AboutMd />
+      </article>
     </section>
   );
 }

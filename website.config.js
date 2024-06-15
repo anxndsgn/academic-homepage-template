@@ -20,3 +20,18 @@ export const websiteInfo = {
   description: "HCI researcher",
   // teaserImage: "/teaser.jpg",
 };
+
+export const navigation = [
+  { name: "Projects", route: "/projects" },
+  { name: "Publications", route: "/publications" },
+  { name: "CV", route: "/cv.pdf" },
+  // { name: "About", route: "/about" },
+  // { name: "News", route: "/news" },
+];
+
+export const homepageSection = {
+  AboutSection: true,
+  SelectedPublicationsSection: true,
+  ProjectSection: true,
+  NewsSection: true,
+};
