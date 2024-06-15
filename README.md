@@ -2,21 +2,60 @@
 
 This project is an academic homepage template built with Next.js, Tailwind CSS, and ShadcnUI. The design is minimalistic and modern, providing a clean and professional look for academic portfolios. It supports deployment to Zeabur and can directly parse `.bib` files to display publications.
 
+![screemshot](public/screenshot.jpg)
+
 ## Features
 
 - **Minimalistic Design**: Clean and modern interface to showcase academic work.
-- **Next.js**: A React framework for building fast and scalable web applications.
-- **Tailwind CSS**: Utility-first CSS framework for rapid UI development.
-- **ShadcnUI**: A customizable UI component library.
-- **Zeabur Deployment**: Easy deployment to Zeabur for hosting.
+- **Markdown Support**: Write website content using markdown files.
+- **Dark Mode**: Supports dark mode for a comfortable viewing experience.
+- **Responsive Design**: Fully responsive and mobile-friendly.
 - **Bib File Parsing**: Directly parse and display publications from `.bib` files.
 
-## Getting Started
+## Customization
+
+### Structure
+
+Your data is divided into three parts:
+
+- `public` folder: Stores your images and CV files.
+- `data` folder: Stores your MDX files and `.bib` files.
+- `website.config.js`: Contains your personal information and social media links.
+
+### MDX
+
+We use `.mdx` files to write content, which is an extension of markdown files. You can use markdown syntax to write your content.
+
+### Project frontmatter
+
+MDX files in the `data/projects` directory need to include frontmatter at the top in the following format:
+
+```
+---
+
+title: "FibeRobo"
+
+description: "Fabricating 4D Fiber Interfaces by Continuous Drawing of Temperature Tunable Liquid Crystal Elastomers"
+
+date: "2023-01-01"
+
+image: "/project1.jpg"
+
+---
+```
+
+The image can be stored in the `public` folder.
+
+## Bib Files
+
+Place your .bib file in the `data/bib` directory. The application will automatically parse the file and display your publications. Make sure to name the `.bib` file as `Publications.bib` or `SelectedPublications.bib` for correct parsing.
+
+## Development
 
 ### Prerequisites
 
 - Node.js (version 14.x or higher)
-- npm or yarn
+- pnpm
 
 ### Installation
 
@@ -32,7 +71,7 @@ This project is an academic homepage template built with Next.js, Tailwind CSS, 
    Using pnpm:
 
    ```bash
-   pnpm install
+   pnpm i
    ```
 
 ### Development
@@ -45,36 +84,26 @@ pnpm run dev
 
 Open http://localhost:3000 in your browser to see the result.
 
-### Deployment to Zeabur
+## Deployment
 
 - Sign in to Zeabur and create a new project.
 - Fork this repo.
 - Deploy the project using Git service.
-  For more detailed instructions, refer to the Zeabur documentation.
+  For more detailed instructions, refer to the [Zeabur documentation](https://zeabur.com/docs/deploy/github).
 
 [![Deployed on Zeabur](https://zeabur.com/deployed-on-zeabur-dark.svg)](https://zeabur.com?referralCode=anxndsgn&utm_source=anxndsgn&utm_campaign=oss)
 
-# Usage
-
-## Parsing Bib Files
-
-Place your .bib file in the public directory. The application will automatically parse the file and display your publications.
-
-## Customization
-
-You can customize the UI components using Tailwind CSS classes and ShadcnUI's customizable components. Refer to the Tailwind CSS documentation and ShadcnUI documentation for more information.
-
-# Contributing
+## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request.
 
-# License
+## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-# Acknowledgements
+## Acknowledgements
 
-Next.js
-Tailwind CSS
-ShadcnUI
-Zeabur
+- Next.js
+- Tailwind CSS
+- ShadcnUI
+- Zeabur

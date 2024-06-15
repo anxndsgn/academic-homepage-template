@@ -25,11 +25,15 @@ export default function AboutSection() {
         )}
         <div className="flex flex-col gap-3">
           <h1 className="text-4xl font-semibold">{personalInfo.name}</h1>
-
           <h2 className="text-xl font-medium">
-            {personalInfo.role} @{personalInfo.university}
+            {personalInfo.role}{" "}
+            <a
+              href={personalInfo.universityWebsite}
+              className="hover:underline"
+            >
+              @{personalInfo.university}
+            </a>
           </h2>
-
           <div className="flex gap-3 text-neutral-600 hover:text-neutral-900">
             {personalInfo.socialMedia.map((social) => {
               return (

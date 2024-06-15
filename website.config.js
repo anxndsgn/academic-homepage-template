@@ -1,7 +1,6 @@
 export const personalInfo = {
   name: "Hiroshi Ishii",
-  introduction: "HCI researcher @ZJU",
-  profilePicture: "/profile.jpg",
+  profilePicture: "/profile.jpg", //optional
   role: "Professor",
   university: "MIT Media Lab",
   universityWebsite: "https://www.zju.edu.cn/",
@@ -19,5 +18,5 @@ export const personalInfo = {
 export const websiteInfo = {
   title: personalInfo.name,
   description: "HCI researcher",
-  teaserImage: "/teaser.jpg",
+  // teaserImage: "/teaser.jpg",
 };
