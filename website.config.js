@@ -23,19 +23,19 @@ export const websiteInfo = {
   // teaserImage: "/teaser.jpg",
 };
 
-// export const navigation = [
-//   { name: "Projects", route: "/projects" },
-//   { name: "Publications", route: "/publications" },
-//   { name: "CV", route: "/cv.pdf" },
-//   // { name: "About", route: "/about" },
-//   // { name: "News", route: "/news" },
-// ];
+export const navigations = [
+  { name: 'Projects', route: '/projects' },
+  { name: 'Publications', route: '/publications' },
+  // { name: "News", route: "/news" },
+  // { name: 'About', route: '/about' },
+  { name: 'CV', route: '/cv.pdf' },
+];
 
 export const homepageSection = {
   AboutSection: true,
-  SelectedPublicationsSection: true,
-  ProjectSection: true,
   NewsSection: true,
+  // SelectedPublicationsSection: true,
+  // ProjectSection: true,
 };
 
-export const fontStyle = 'mono'; // "sans" | "serif" | "mono"
+export const fontStyle = 'sans'; // "sans" | "serif" | "mono"
