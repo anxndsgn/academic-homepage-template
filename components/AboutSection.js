@@ -78,7 +78,7 @@ export default function AboutSection() {
           ></Image>
         )}
       </div>
-      <article className="flex flex-col gap-2">
+      <article className="flex flex-col gap-2 text-justify">
         <AboutMd />
       </article>
     </section>

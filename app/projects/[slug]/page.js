@@ -1,10 +1,10 @@
-import { CustomMDX } from "@/components/mdx";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { RiArrowLeftSLine } from "@remixicon/react";
-import { formatDate, getProjects } from "../utils";
-import { notFound } from "next/navigation";
-import BackButton from "@/components/BackButton";
+import { CustomMDX } from '@/components/mdx';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { RiArrowLeftSLine } from '@remixicon/react';
+import { formatDate, getProjects } from '../utils';
+import { notFound } from 'next/navigation';
+import BackButton from '@/components/BackButton';
 
 export async function generateStaticParams() {
   const projectList = getProjects();
@@ -34,7 +34,7 @@ export default function Page({ params }) {
         <BackButton />
         <h1 className="text-3xl font-semibold">{project.metadata.title}</h1>
       </div>
-      <article className="prose">
+      <article className="prose text-justify">
         <CustomMDX source={project.content} />
       </article>
     </main>
