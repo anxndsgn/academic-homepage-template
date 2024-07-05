@@ -50,6 +50,8 @@ The image can be stored in the `public` folder.
 
 Place your .bib file in the `data/bib` directory. The application will automatically parse the file and display your publications. Make sure to name the `.bib` file as `Publications.bib` or `SelectedPublications.bib` for correct parsing.
 
+And if your paper is awarded, you can add`award={Best Paper Award}` or `award={Hornorable Mention}`to your bibtex.
+
 ## Development
 
 ### Prerequisites

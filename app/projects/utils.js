@@ -1,19 +1,19 @@
-import fs from "fs";
-import path from "path";
-import { parseISO, format } from "date-fns";
+import fs from 'fs';
+import path from 'path';
+import { parseISO, format } from 'date-fns';
 
-function parseFrontmatter(fileContent) {
+export function parseFrontmatter(fileContent) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   let match = frontmatterRegex.exec(fileContent);
   let frontMatterBlock = match[1];
-  let content = fileContent.replace(frontmatterRegex, "").trim();
-  let frontMatterLines = frontMatterBlock.trim().split("\n");
+  let content = fileContent.replace(frontmatterRegex, '').trim();
+  let frontMatterLines = frontMatterBlock.trim().split('\n');
   let metadata = {};
 
   frontMatterLines.forEach((line) => {
-    let [key, ...valueArr] = line.split(": ");
-    let value = valueArr.join(": ").trim();
-    value = value.replace(/^['"](.*)['"]$/, "$1"); // Remove quotes
+    let [key, ...valueArr] = line.split(': ');
+    let value = valueArr.join(': ').trim();
+    value = value.replace(/^['"](.*)['"]$/, '$1'); // Remove quotes
     metadata[key.trim()] = value;
   });
 
@@ -21,11 +21,11 @@ function parseFrontmatter(fileContent) {
 }
 
 function getMDXFiles(dir) {
-  return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
+  return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx');
 }
 
 function readMDXFile(filePath) {
-  let rawContent = fs.readFileSync(filePath, "utf-8");
+  let rawContent = fs.readFileSync(filePath, 'utf-8');
   return parseFrontmatter(rawContent);
 }
 
@@ -35,7 +35,7 @@ function getMDXData(dir) {
     let { metadata, content } = readMDXFile(path.join(dir, file));
     let slug = path
       .basename(file, path.extname(file))
-      .replace(/ /g, "")
+      .replace(/ /g, '')
       .toLowerCase();
 
     return {
@@ -47,9 +47,9 @@ function getMDXData(dir) {
 }
 
 export function getProjects() {
-  return getMDXData(path.join(process.cwd(), "data", "projects"));
+  return getMDXData(path.join(process.cwd(), 'data', 'projects'));
 }
 
 export function formatDate(date) {
-  return format(parseISO(date), "MMMM dd, yyyy");
+  return format(parseISO(date), 'MMMM dd, yyyy');
 }
