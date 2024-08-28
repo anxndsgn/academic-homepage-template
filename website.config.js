@@ -29,6 +29,7 @@ export const navigations = [
   // { name: "News", route: "/news" },
   // { name: 'About', route: '/about' },
   { name: 'CV', route: '/cv.pdf' },
+  { name: 'Notion', route: '/notion' },
 ];
 
 export const homepageSection = {
