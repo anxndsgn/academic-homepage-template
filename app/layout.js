@@ -30,11 +30,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang='en' suppressHydrationWarning>
       <body className={`${font.className} bg-neutral-50 dark:bg-neutral-800`}>
         <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
+          attribute='class'
+          defaultTheme='light'
           disableTransitionOnChange
         >
           <Header />
