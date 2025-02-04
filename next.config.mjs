@@ -9,6 +9,7 @@ const nextConfig = {
       rules: {
         '*.bib': {
           loaders: ['raw-loader'],
+          as: '*.js',
         },
       },
     },
