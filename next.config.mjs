@@ -9,10 +9,16 @@ const nextConfig = {
       rules: {
         '*.bib': {
           loaders: ['raw-loader'],
-          as: '*.js',
         },
       },
     },
+  },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.bib$/,
+      type: 'asset/source',
+    });
+    return config;
   },
 };
 
