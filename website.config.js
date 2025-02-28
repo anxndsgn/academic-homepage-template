@@ -20,21 +20,19 @@ export const personalInfo = {
 export const websiteInfo = {
   title: personalInfo.name,
   description: "HCI researcher",
-  // teaserImage: "/teaser.jpg",
 };
 
 export const navigations = [
   { name: "Projects", route: "/projects" },
   { name: "Publications", route: "/publications" },
   { name: "News", route: "/news" },
-  // { name: "About", route: "/about" },
   { name: "CV", route: "/cv/cv.pdf" },
 ];
 
 export const homepageSection = {
   AboutSection: true,
   NewsSection: true,
-  // SelectedPublicationsSection: true,
+  SelectedPublicationsSection: true,
   // ProjectSection: true,
 };
 
