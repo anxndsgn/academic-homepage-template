@@ -2,11 +2,12 @@
 import React from "react";
 import { Button } from "./ui/button";
 import { RiArrowLeftSLine } from "@remixicon/react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function BackButton() {
+  const router = useRouter();
   const handleBack = () => {
-    window.history.back();
+    router.back();
   };
   return (
     <Button variant="outline" size="icon" onClick={handleBack}>
