@@ -1,16 +1,16 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import AboutMd from '@/data/home/About.mdx';
-import { personalInfo } from '@/website.config';
+import Link from "next/link";
+import Image from "next/image";
+import AboutMd from "@/data/home/About.mdx";
+import { personalInfo } from "@/website.config";
 import {
   RiMailLine,
   RiGithubFill,
   RiLinkedinBoxFill,
   RiTwitterXLine,
   RiGoogleFill,
-} from '@remixicon/react';
-import orcid from '@/public/orcid.svg';
-import { Button } from './ui/button';
+} from "@remixicon/react";
+import orcid from "@/public/orcid.svg";
+import { Button } from "./ui/button";
 
 export default function AboutSection() {
   return (
@@ -28,7 +28,7 @@ export default function AboutSection() {
         <div className="flex flex-col gap-3">
           <h1 className="text-4xl font-semibold">{personalInfo.name}</h1>
           <h2 className="text-xl font-medium">
-            {personalInfo.role}{' '}
+            {personalInfo.role}{" "}
             <a
               href={personalInfo.universityWebsite}
               className="hover:underline"
@@ -39,17 +39,17 @@ export default function AboutSection() {
           <div className="flex gap-3 text-neutral-600 hover:text-neutral-900">
             {personalInfo.socialMedia.map((social) => {
               return (
-                <Button asChild variant="outline" key={social.name} size={'sm'}>
+                <Button asChild variant="outline" key={social.name} size={"sm"}>
                   <Link href={social.url} target="_blank">
-                    {social.name === 'Email' ? (
+                    {social.name === "Email" ? (
                       <RiMailLine size={16} />
-                    ) : social.name === 'GitHub' ? (
+                    ) : social.name === "GitHub" ? (
                       <RiGithubFill size={16} />
-                    ) : social.name === 'Twitter' ? (
+                    ) : social.name === "Twitter" ? (
                       <RiTwitterXLine size={16} />
-                    ) : social.name === 'Google Scholar' ? (
+                    ) : social.name === "Google Scholar" ? (
                       <RiGoogleFill size={16} />
-                    ) : social.name === 'ORCID' ? (
+                    ) : social.name === "ORCID" ? (
                       <svg
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +78,7 @@ export default function AboutSection() {
           ></Image>
         )}
       </div>
-      <article className="flex flex-col gap-2 text-justify">
+      <article className="flex flex-col gap-2 text-pretty">
         <AboutMd />
       </article>
     </section>

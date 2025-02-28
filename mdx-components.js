@@ -2,7 +2,7 @@ export function useMDXComponents(components) {
   return {
     p: (props) => (
       <p
-        className="text-base text-neutral-600 dark:text-neutral-300"
+        className="text-base text-neutral-600 dark:text-neutral-300 text-pretty"
         {...props}
       />
     ),
