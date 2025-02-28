@@ -26,6 +26,20 @@ Your data is divided into three parts:
 
 We use `.mdx` files to write content, which is an extension of markdown files. You can use markdown syntax to write your content.
 
+### News frontmatter
+
+MDX files in the `data/news` directory need to include frontmatter at the top in the following format:
+
+```
+---
+
+title: "news title"
+
+date: "2023-01-01"
+
+---
+```
+
 ### Project frontmatter
 
 MDX files in the `data/projects` directory need to include frontmatter at the top in the following format:
