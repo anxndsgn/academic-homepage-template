@@ -1,6 +1,6 @@
 import React from "react";
 import Publications from "./Publications";
-import bibtex from "../data/bib/SelectedPublications.bib";
+import bibtex from "../data/publications/SelectedPublications.bib";
 import Link from "next/link";
 
 export default function SelectedPublicationsSection() {

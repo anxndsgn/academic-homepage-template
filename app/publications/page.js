@@ -1,6 +1,6 @@
 import React from "react";
 import SelectedPublicationsSection from "@/components/Publications";
-import bibtex from "@/data/bib/Publications.bib";
+import bibtex from "@/data/publications/Publications.bib";
 
 export const metadata = {
   title: "Publications",
