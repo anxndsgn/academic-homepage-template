@@ -1,34 +1,34 @@
 export const personalInfo = {
-  name: 'Hiroshi Ishii',
-  profilePicture: '/profile.jpg', //optional
-  role: 'Professor',
-  university: 'MIT Media Lab',
-  universityWebsite: 'https://www.zju.edu.cn/',
+  name: "Hiroshi Ishii",
+  profilePicture: "/profile.jpg", //optional
+  role: "Professor",
+  university: "MIT Media Lab",
+  universityWebsite: "https://www.zju.edu.cn/",
   socialMedia: [
-    { name: 'Email', url: 'https://linkedin.com' },
-    { name: 'Twitter', url: 'https://twitter.com/anxndsgn' },
+    { name: "Email", url: "https://linkedin.com" },
+    { name: "Twitter", url: "https://twitter.com/anxndsgn" },
     {
-      name: 'GitHub',
-      url: 'https://github.com/anxndsgn/academic-homepage-template',
+      name: "GitHub",
+      url: "https://github.com/anxndsgn/academic-homepage-template",
     },
-    { name: 'LinkedIn', url: 'https://linkedin.com' },
-    { name: 'ORCID', url: 'https://orcid' },
-    { name: 'Google Scholar', url: 'https://scholar.google.com' },
+    { name: "LinkedIn", url: "https://linkedin.com" },
+    { name: "ORCID", url: "https://orcid" },
+    { name: "Google Scholar", url: "https://scholar.google.com" },
   ],
 };
 
 export const websiteInfo = {
   title: personalInfo.name,
-  description: 'HCI researcher',
+  description: "HCI researcher",
   // teaserImage: "/teaser.jpg",
 };
 
 export const navigations = [
-  { name: 'Projects', route: '/projects' },
-  { name: 'Publications', route: '/publications' },
-  // { name: "News", route: "/news" },
+  { name: "Projects", route: "/projects" },
+  { name: "Publications", route: "/publications" },
+  { name: "News", route: "/news" },
   // { name: 'About', route: '/about' },
-  { name: 'CV', route: '/cv.pdf' },
+  { name: "CV", route: "/cv.pdf" },
 ];
 
 export const homepageSection = {
@@ -38,4 +38,4 @@ export const homepageSection = {
   // ProjectSection: true,
 };
 
-export const fontStyle = 'sans'; // "sans" | "serif" | "mono"
+export const fontStyle = "sans"; // "sans" | "serif" | "mono"
