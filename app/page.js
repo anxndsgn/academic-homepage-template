@@ -1,5 +1,5 @@
 import AboutSection from "@/components/AboutSection";
-import NewsSection from "@/components/NewsSection";
+import LatestNewsSection from "@/components/LatestNewsSection";
 import ProjectSection from "@/components/ProjectSection";
 import PublicationsSection from "@/components/SelectedPublicationsSection";
 import bibtex from "@/data/bib/Publications.bib";
@@ -9,12 +9,7 @@ export default function Page() {
   return (
     <main className="md:w-[40rem] m-auto px-8 mt-32 flex flex-col gap-10 mb-20">
       {homepageSection.AboutSection && <AboutSection />}
-      {homepageSection.NewsSection && (
-        <div>
-          <h1 className="text-2xl font-semibold mb-2">News</h1>
-          <NewsSection />
-        </div>
-      )}
+      {homepageSection.NewsSection && <LatestNewsSection />}
       {homepageSection.SelectedPublicationsSection && (
         <PublicationsSection bibtex={bibtex} />
       )}
