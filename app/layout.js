@@ -1,7 +1,7 @@
 import { Inter, JetBrains_Mono, EB_Garamond } from 'next/font/google';
-import { fontStyle } from '@/website.config';
+import { fontStyle } from '@/data/website.config';
 import './globals.css';
-import { websiteInfo } from '@/website.config';
+import { websiteInfo } from '@/data/website.config';
 import Header from '@/components/Header';
 import { ThemeProvider } from '@/components/ThemeProvider';
 
