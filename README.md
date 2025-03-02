@@ -20,7 +20,7 @@ Your data is divided into three parts:
 
 - `public` folder: Stores your images and CV files.
 - `data` folder: Stores your MDX files and `.bib` files.
-- `website.config.js`: Contains your personal information and social media links.
+- `data/website.config.js`: Contains your personal information and social media links.
 
 ### MDX
 
