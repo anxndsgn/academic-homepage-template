@@ -41,6 +41,6 @@
     "eslint-config-next": "15.1.6",
     "postcss": "^8",
     "raw-loader": "^4.0.2",
-    "tailwindcss": "^4.0.0"
+    "tailwindcss": "^4.0.15"
   }
 }
