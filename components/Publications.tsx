@@ -3,15 +3,14 @@ import Image from 'next/image';
 import { personalInfo } from '@/data/website.config';
 import { CustomMDX } from '@/components/mdx';
 
-function authorProcess(authorsStr, personalInfo) {
+function authorProcess(authorsStr: string, personalInfoName: string): string {
   const authors = authorsStr.split('and');
 
   const boldedAuthors = authors.map((author) => {
     author = author.trim().split(', ').reverse().join(' ').trim();
 
-    if (author === personalInfo) {
-      // console.log(author);
-      return `**${personalInfo}**`;
+    if (author === personalInfoName) {
+      return `**${personalInfoName}**`;
     }
 
     return author;
@@ -20,14 +19,38 @@ function authorProcess(authorsStr, personalInfo) {
   return boldedAuthors.join(', ');
 }
 
-export default function Publications({ bibtex }) {
-  const parsed = bibtexParse.toJSON(bibtex);
+interface BibtexEntry {
+  entryKey: string;
+  entryTags: {
+    author?: string;
+    title?: string;
+    url?: string;
+    journal?: string;
+    booktitle?: string;
+    year?: string;
+    award?: string;
+  };
+}
+
+interface ParsedBibtex {
+  entryKey: string;
+  citationKey: string;
+  entryType: string;
+  entryTags: BibtexEntry['entryTags'];
+}
+
+interface PublicationsProps {
+  bibtex: string;
+}
+
+export default function Publications({ bibtex }: PublicationsProps) {
+  const parsed = bibtexParse.toJSON(bibtex) as ParsedBibtex[];
 
   return (
     <ol className='flex flex-col gap-4'>
       {parsed.map((item) => {
         const processedAuthors = authorProcess(
-          item.entryTags.author,
+          item.entryTags.author || '',
           personalInfo.name
         );
         return (
@@ -35,10 +58,10 @@ export default function Publications({ bibtex }) {
             <h2 className='text-base font-medium dark:text-neutral-50'>
               {item.entryTags.url ? (
                 <a href={item.entryTags.url} className='underline'>
-                  {item.entryTags.title.replace(/{|}/g, '')}
+                  {item.entryTags.title?.replace(/{|}/g, '')}
                 </a>
               ) : (
-                item.entryTags.title.replace(/{|}/g, '')
+                item.entryTags.title?.replace(/{|}/g, '')
               )}
             </h2>
 

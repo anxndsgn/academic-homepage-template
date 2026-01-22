@@ -1,6 +1,7 @@
+import { Metadata } from "next";
 import ProjectSection from "@/components/ProjectSection";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Projects",
 };
 

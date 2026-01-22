@@ -1,5 +1,7 @@
 'use client';
-import { personalInfo } from '@/data/website.config';
+
+import React, { useState, useEffect } from 'react';
+import { personalInfo, navigations } from '@/data/website.config';
 import {
   RiMenuLine,
   RiCloseLine,
@@ -8,9 +10,7 @@ import {
 } from '@remixicon/react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-import { navigations } from '@/data/website.config';
 
 export default function Header() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -47,17 +47,6 @@ export default function Header() {
         <div className='flex'>
           <div className='md:block hidden text-neutral-600 '>
             {nav}
-            {/* <Button asChild variant="ghost">
-              <Link href={'/projects'} className=" font-normal">
-                Projects
-              </Link>
-            </Button>
-            <Button asChild variant="ghost" className=" font-normal">
-              <Link href={'/publications'}>Publications</Link>
-            </Button>
-            <Button asChild variant="ghost" className=" font-normal">
-              <Link href={'/cv.pdf'}>CV</Link>
-            </Button> */}
           </div>
 
           <Button

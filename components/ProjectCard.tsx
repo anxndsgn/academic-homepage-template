@@ -1,5 +1,15 @@
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  date: string;
+  img: string;
+  slug: string;
+  id?: string;
+}
 
 export default function ProjectCard({
   title,
@@ -7,8 +17,7 @@ export default function ProjectCard({
   date,
   img,
   slug,
-  id,
-}) {
+}: ProjectCardProps) {
   return (
     <Link href={`projects/${slug}`} className="">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2 border-neutral-200 dark:border-neutral-700 border w-full md:h-52 rounded-xl bg-white dark:bg-neutral-800 hover:shadow-xs overflow-hidden">

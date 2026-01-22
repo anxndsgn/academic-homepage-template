@@ -1,26 +1,13 @@
-import { Inter, JetBrains_Mono, EB_Garamond } from 'next/font/google';
 import { fontStyle } from '@/data/website.config';
 import './globals.css';
 import { websiteInfo } from '@/data/website.config';
 import Header from '@/components/Header';
 import { ThemeProvider } from '@/components/ThemeProvider';
 
-const inter = Inter({
-  subsets: ['latin'],
-});
-
-const mono = JetBrains_Mono({
-  subsets: ['latin'],
-});
-
-const serif = EB_Garamond({
-  subsets: ['latin'],
-});
-
-const font = {
-  sans: inter,
-  serif: serif,
-  mono: mono,
+const fontClasses = {
+  sans: 'font-sans',
+  serif: 'font-serif',
+  mono: 'font-mono',
 }[fontStyle];
 
 export const metadata = {
@@ -28,10 +15,14 @@ export const metadata = {
   description: websiteInfo.description,
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <body className={`${font.className} bg-neutral-50 dark:bg-neutral-800`}>
+      <body className={`${fontClasses} bg-neutral-50 dark:bg-neutral-800`}>
         <ThemeProvider
           attribute='class'
           defaultTheme='light'

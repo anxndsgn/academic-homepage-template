@@ -9,7 +9,6 @@ import {
   RiTwitterXLine,
   RiGoogleFill,
 } from '@remixicon/react';
-import orcid from '@/public/orcid.svg';
 import { Button } from './ui/button';
 
 export default function AboutSection() {
@@ -23,7 +22,7 @@ export default function AboutSection() {
             width={120}
             height={120}
             className='md:hidden sm:block object-cover aspect-square'
-          ></Image>
+          />
         )}
         <div className='flex flex-col gap-3'>
           <h1 className='text-4xl font-semibold'>{personalInfo.name}</h1>
@@ -75,7 +74,7 @@ export default function AboutSection() {
             width={120}
             height={120}
             className='hidden md:block object-cover aspect-square'
-          ></Image>
+          />
         )}
       </div>
       <article className='flex flex-col gap-2 text-pretty'>

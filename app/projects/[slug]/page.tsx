@@ -1,27 +1,32 @@
+import { Metadata } from "next";
 import { CustomMDX } from "@/components/mdx";
-import { getNews } from "../utils";
+import { getProjects } from "../utils";
 import { notFound } from "next/navigation";
 import BackButton from "@/components/BackButton";
 
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
 export async function generateStaticParams() {
-  const projectList = getNews();
+  const projectList = getProjects();
   return projectList.map((project) => ({
     slug: project.slug,
   }));
 }
 
-export async function generateMetadata(props) {
+export async function generateMetadata(props: PageProps): Promise<Metadata> {
   const params = await props.params;
-  const project = getNews().find((project) => project.slug === params.slug);
+  const project = getProjects().find((project) => project.slug === params.slug);
   return {
-    title: project.metadata.title,
-    description: project.metadata.description,
+    title: project?.metadata.title,
+    description: project?.metadata.description,
   };
 }
 
-export default async function Page(props) {
+export default async function Page(props: PageProps) {
   const params = await props.params;
-  const project = getNews().find((project) => project.slug === params.slug);
+  const project = getProjects().find((project) => project.slug === params.slug);
 
   if (!project) {
     notFound();

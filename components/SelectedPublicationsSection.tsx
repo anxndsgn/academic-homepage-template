@@ -1,9 +1,12 @@
 import React from "react";
 import Publications from "./Publications";
-import bibtex from "../data/publications/SelectedPublications.bib";
 import Link from "next/link";
 
-export default function SelectedPublicationsSection() {
+interface SelectedPublicationsSectionProps {
+  bibtex: string;
+}
+
+export default function SelectedPublicationsSection({ bibtex }: SelectedPublicationsSectionProps) {
   return (
     <section className="flex flex-col gap-3">
       <div className="flex justify-between">
