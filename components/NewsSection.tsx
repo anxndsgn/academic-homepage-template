@@ -1,10 +1,10 @@
 import React from "react";
-import { formatDate, getNews } from "@/app/news/utils";
 import Link from "next/link";
+import { formatDate, getNews } from "@/app/news/utils";
 
 export default function NewsSection() {
   const newsItems = getNews().sort((a, b) => {
-    return new Date(b.metadata.date) - new Date(a.metadata.date);
+    return new Date(b.metadata.date || '').getTime() - new Date(a.metadata.date || '').getTime();
   });
 
   return (
@@ -24,7 +24,7 @@ export default function NewsSection() {
             >
               <p className="hover:underline">{item.metadata.title}</p>
               <p className="text-neutral-500">
-                {formatDate(item.metadata.date)}
+                {formatDate(item.metadata.date || '')}
               </p>
             </Link>
           </li>

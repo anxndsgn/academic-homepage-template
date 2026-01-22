@@ -2,18 +2,33 @@ import fs from 'fs';
 import path from 'path';
 import { parseISO, format } from 'date-fns';
 
+export interface FrontmatterMetadata {
+  [key: string]: string;
+}
+
+export interface ParsedFrontmatter {
+  metadata: FrontmatterMetadata;
+  content: string;
+}
+
+export interface MDXDataItem {
+  metadata: FrontmatterMetadata;
+  slug: string;
+  content: string;
+}
+
 /**
  * 解析 MDX 文件的前置元数据
  * @param {string} fileContent - MDX 文件内容
  * @returns {Object} 包含元数据和内容的对象
  */
-export function parseFrontmatter(fileContent) {
+export function parseFrontmatter(fileContent: string): ParsedFrontmatter {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   let match = frontmatterRegex.exec(fileContent);
-  let frontMatterBlock = match[1];
+  let frontMatterBlock = match![1];
   let content = fileContent.replace(frontmatterRegex, '').trim();
   let frontMatterLines = frontMatterBlock.trim().split('\n');
-  let metadata = {};
+  let metadata: FrontmatterMetadata = {};
 
   frontMatterLines.forEach((line) => {
     let [key, ...valueArr] = line.split(': ');
@@ -30,7 +45,7 @@ export function parseFrontmatter(fileContent) {
  * @param {string} dir - 目录路径
  * @returns {Array} MDX 文件名数组
  */
-export function getMDXFiles(dir) {
+export function getMDXFiles(dir: string): string[] {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx');
 }
 
@@ -39,7 +54,7 @@ export function getMDXFiles(dir) {
  * @param {string} filePath - 文件路径
  * @returns {Object} 包含元数据和内容的对象
  */
-export function readMDXFile(filePath) {
+export function readMDXFile(filePath: string): ParsedFrontmatter {
   let rawContent = fs.readFileSync(filePath, 'utf-8');
   return parseFrontmatter(rawContent);
 }
@@ -49,7 +64,7 @@ export function readMDXFile(filePath) {
  * @param {string} dir - 目录路径
  * @returns {Array} MDX 文件数据对象数组
  */
-export function getMDXData(dir) {
+export function getMDXData(dir: string): MDXDataItem[] {
   let mdxFiles = getMDXFiles(dir);
   return mdxFiles.map((file) => {
     let { metadata, content } = readMDXFile(path.join(dir, file));
@@ -71,6 +86,6 @@ export function getMDXData(dir) {
  * @param {string} date - ISO 格式的日期字符串
  * @returns {string} 格式化后的日期字符串
  */
-export function formatDate(date) {
+export function formatDate(date: string): string {
   return format(parseISO(date), 'MMMM dd, yyyy');
 }

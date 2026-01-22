@@ -1,11 +1,11 @@
 import path from "path";
-import { getMDXData, formatDate } from "@/lib/mdx-utils";
+import { getMDXData, formatDate, type MDXDataItem } from "@/lib/mdx-utils";
 
 /**
  * 获取所有新闻数据
  * @returns {Array} 新闻数据对象数组
  */
-export function getNews() {
+export function getNews(): MDXDataItem[] {
   return getMDXData(path.join(process.cwd(), "data", "news"));
 }
 

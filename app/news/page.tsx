@@ -1,6 +1,7 @@
+import { Metadata } from "next";
 import NewsSection from "@/components/NewsSection";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "News",
 };
 
